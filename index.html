@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Network Status</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background"></div>
+    
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>⛏ Minecraft Network</h1>
+                <p>Server Status Dashboard</p>
+            </div>
+            <div class="header-info">
+                <span class="status-indicator"></span>
+                <span class="status-text">All Systems Online</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Network Status</h2>
+                <p>Check the status of all Minecraft servers and services</p>
+                <div class="last-update">Last updated: <span id="lastUpdate">Loading...</span></div>
+            </div>
+        </section>
+
+        <section class="servers-section">
+            <h2 class="section-title">Active Servers</h2>
+            <div class="servers-grid" id="serversGrid">
+                <div class="server-card loading">
+                    <div class="loader"></div>
+                    <p>Loading servers...</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <h2 class="section-title">Network Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="playerCount">0</div>
+                        <div class="stat-label">Players Online</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🖥️</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="serverCount">0</div>
+                        <div class="stat-label">Servers Active</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="uptime">99.9%</div>
+                        <div class="stat-label">Uptime</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📡</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="avgPing">--</div>
+                        <div class="stat-label">Avg Ping</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="status-timeline">
+            <h2 class="section-title">Status History</h2>
+            <div class="timeline" id="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">Now</div>
+                    <div class="timeline-status online">● All Online</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">1h ago</div>
+                    <div class="timeline-status online">● All Online</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">2h ago</div>
+                    <div class="timeline-status online">● All Online</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">3h ago</div>
+                    <div class="timeline-status online">● All Online</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Minecraft Network. All rights reserved.</p>
+            <p>Connecting players worldwide | Powered by Minecraft</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
