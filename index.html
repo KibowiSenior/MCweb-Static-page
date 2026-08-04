@@ -1,19 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>spymc.xyz – Minecraft Server</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>spymc.xyz – Premium Minecraft Survival Server</title>
+  <meta name="description" content="Join spymc.xyz – a premium Minecraft survival community where legends are forged. Survival, economy, mini-games, and a friendly community. Connect now!" />
+  <meta name="keywords" content="Minecraft, server, survival, economy, mini-games, spymc, premium, community, multiplayer" />
+  <meta name="author" content="spymc.xyz" />
+  <link rel="canonical" href="https://spymc.xyz" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://spymc.xyz" />
+  <meta property="og:title" content="spymc.xyz – Premium Minecraft Survival Server" />
+  <meta property="og:description" content="Join a premium survival community with economy, mini-games, and friendly players. Connect now at spymc.xyz!" />
+  <meta property="og:image" content="https://i.ibb.co/JWQwTrMn/wp8324581-8k-minecraft-wallpapers.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://spymc.xyz" />
+  <meta name="twitter:title" content="spymc.xyz – Premium Minecraft Survival Server" />
+  <meta name="twitter:description" content="Join a premium survival community with economy, mini-games, and friendly players. Connect now!" />
+  <meta name="twitter:image" content="https://i.ibb.co/JWQwTrMn/wp8324581-8k-minecraft-wallpapers.png" />
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23333'/><text x='50' y='70' font-size='50' text-anchor='middle' fill='%23aaffaa' font-family='monospace'>⛏️</text></svg>" />
+
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Google Font: Press Start 2P (Minecraft style) -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+
   <style>
-    /* ----- CONFIGURATION -----
-       Change the values below to match your server.
-    */
+    /* ----- CONFIGURATION (edit these) ----- */
     :root {
       --server-ip: "spymc.xyz";
       --discord-url: "https://discord.gg/your-invite";
       --store-url: "https://store.spymc.xyz";
     }
-    /* ------------------------ */
+    /* --------------------------------------- */
 
     * {
       margin: 0;
@@ -22,107 +49,231 @@
     }
 
     body {
-      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: #0b0e14;
+      font-family: 'Press Start 2P', 'Courier New', monospace;
       color: #fff;
-      padding: 20px;
+      padding: 24px;
       /* Background image with dark overlay */
-      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                        url('https://i.ibb.co/JWQwTrMn/wp8324581-8k-minecraft-wallpapers.png');
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url('https://i.ibb.co/JWQwTrMn/wp8324581-8k-minecraft-wallpapers.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-    }
-
-    .container {
-      max-width: 700px;
-      width: 100%;
+      position: relative;
+      overflow: hidden;
       text-align: center;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-radius: 32px;
-      padding: 48px 32px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .logo {
-      font-size: 3rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-      margin-bottom: 0.25rem;
-      background: linear-gradient(135deg, #f9d976, #f39f86);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-shadow: none;
+    /* ---- CRT overlay (vignette + scanlines + flicker) ---- */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background: 
+        radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.6) 100%),
+        repeating-linear-gradient(0deg, 
+          transparent 0px, 
+          rgba(0, 0, 0, 0.08) 2px, 
+          transparent 3px, 
+          transparent 5px);
+      animation: flicker 0.15s infinite alternate;
+      mix-blend-mode: multiply;
     }
 
-    .subtitle {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 2rem;
-      font-weight: 300;
-      letter-spacing: 1px;
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background: repeating-linear-gradient(0deg, 
+        transparent 0px, 
+        rgba(0, 255, 0, 0.02) 2px, 
+        transparent 4px, 
+        transparent 6px);
+      animation: scanlines 0.6s linear infinite;
     }
 
-    .ip-display {
-      background: rgba(255, 255, 255, 0.06);
-      border-radius: 60px;
-      padding: 12px 24px;
+    @keyframes scanlines {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 4px; }
+    }
+
+    @keyframes flicker {
+      0% { opacity: 0.95; }
+      100% { opacity: 1; }
+    }
+
+    /* All content above overlays */
+    .glitch-wrapper,
+    .subtitle,
+    .ip-display,
+    .buttons {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---- Glitch title (Minecraft font, not horror) ---- */
+    .glitch-wrapper {
       display: inline-block;
-      margin-bottom: 2.5rem;
+      position: relative;
+      margin-bottom: 0.8rem;
+      filter: drop-shadow(0 0 20px rgba(0, 255, 0, 0.15));
+    }
+    .glitch {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 4.8rem;
+      font-weight: 400;
+      letter-spacing: 6px;
+      color: #aaffaa;
+      text-shadow: 
+        0 0 10px rgba(0, 255, 0, 0.3),
+        0 0 30px rgba(0, 255, 0, 0.1),
+        4px 4px 0 #1a3a1a,
+        8px 8px 0 #0a1a0a;
+      animation: glitch 2.5s infinite;
+      position: relative;
+      display: inline-block;
+      transition: text-shadow 0.3s;
+    }
+    .glitch:hover {
+      text-shadow: 
+        0 0 20px rgba(0, 255, 0, 0.5),
+        0 0 50px rgba(0, 255, 0, 0.3),
+        4px 4px 0 #1a3a1a,
+        8px 8px 0 #0a1a0a;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+    .glitch::before {
+      color: #88ff88;
+      z-index: -1;
+      animation: glitch-before 1.2s infinite;
+      clip-path: inset(0 0 70% 0);
+      text-shadow: 0 0 8px #00ff00;
+    }
+    .glitch::after {
+      color: #44ff44;
+      z-index: -1;
+      animation: glitch-after 1.6s infinite;
+      clip-path: inset(70% 0 0 0);
+      text-shadow: 0 0 8px #00ff00;
+    }
+
+    @keyframes glitch {
+      0%, 100% { transform: skew(0deg, 0deg) scale(1); opacity: 1; }
+      5% { transform: skew(1deg, -1deg) scale(1.01); opacity: 0.95; }
+      10% { transform: skew(0deg, 0deg) scale(1); opacity: 1; }
+    }
+    @keyframes glitch-before {
+      0%, 100% { transform: translate(0, 0); }
+      5% { transform: translate(-4px, 3px); }
+      10% { transform: translate(4px, -3px); }
+    }
+    @keyframes glitch-after {
+      0%, 100% { transform: translate(0, 0); }
+      5% { transform: translate(4px, -3px); }
+      10% { transform: translate(-4px, 3px); }
+    }
+
+    /* ---- Subtitle ---- */
+    .subtitle {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.75rem;
+      color: #c0d0e0;
+      margin-bottom: 2.4rem;
+      letter-spacing: 2px;
+      line-height: 2;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.9);
+      max-width: 650px;
+    }
+    .subtitle span {
+      display: inline-block;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 4px;
+    }
+
+    /* ---- IP display ---- */
+    .ip-display {
+      font-family: 'Press Start 2P', monospace;
+      background: rgba(0, 0, 0, 0.5);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      font-family: 'Courier New', monospace;
-      font-size: 1.1rem;
-      color: #aaa;
+      border-radius: 60px;
+      padding: 14px 32px;
+      display: inline-block;
+      margin-bottom: 2.8rem;
+      font-size: 0.8rem;
+      color: #9aaab8;
       letter-spacing: 1px;
+      backdrop-filter: blur(4px);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
     }
     .ip-display strong {
-      color: #fff;
+      color: #b8f2b8;
       font-weight: 600;
+      text-shadow: 0 0 16px rgba(0, 255, 0, 0.2);
     }
 
+    /* ---- Buttons ---- */
     .buttons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 16px;
-      margin-top: 8px;
+      gap: 18px;
     }
-
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 16px 40px;
+      gap: 12px;
+      padding: 14px 30px;
       border-radius: 60px;
-      font-size: 1.1rem;
-      font-weight: 600;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.65rem;
+      font-weight: 400;
       text-decoration: none;
       color: #fff;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(4px);
       transition: all 0.25s ease;
       cursor: pointer;
-      min-width: 160px;
-      letter-spacing: 0.5px;
-      flex: 1 1 auto;
+      flex: 0 1 auto;
+      min-width: 140px;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
-
+    .btn i {
+      font-size: 1.1rem;
+      width: 1.4rem;
+      text-align: center;
+    }
     .btn:hover {
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
     }
-
-    /* Individual button colours */
     .btn-discord {
       background: #5865F2;
       border-color: #5865F2;
@@ -130,10 +281,8 @@
     }
     .btn-discord:hover {
       background: #4752c4;
-      border-color: #4752c4;
       box-shadow: 0 8px 25px rgba(88, 101, 242, 0.5);
     }
-
     .btn-store {
       background: #f39c12;
       border-color: #f39c12;
@@ -141,10 +290,8 @@
     }
     .btn-store:hover {
       background: #d68910;
-      border-color: #d68910;
       box-shadow: 0 8px 25px rgba(243, 156, 18, 0.5);
     }
-
     .btn-join {
       background: #2ecc71;
       border-color: #2ecc71;
@@ -152,152 +299,128 @@
     }
     .btn-join:hover {
       background: #27ae60;
-      border-color: #27ae60;
       box-shadow: 0 8px 25px rgba(46, 204, 113, 0.5);
     }
 
-    .btn i {
-      font-size: 1.2rem;
-    }
-
-    /* Feedback message */
+    /* ---- Toast (copy feedback) ---- */
     .toast {
       position: fixed;
       bottom: 30px;
       left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.8);
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(8px);
-      color: #fff;
+      color: #b8f2b8;
       padding: 12px 28px;
       border-radius: 60px;
-      font-size: 0.95rem;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.6rem;
       opacity: 0;
       transition: opacity 0.4s ease, transform 0.3s ease;
       pointer-events: none;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      font-weight: 500;
+      border: 1px solid rgba(46, 204, 113, 0.3);
+      letter-spacing: 1px;
+      z-index: 999;
     }
     .toast.show {
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
 
-    /* Responsive */
-    @media (max-width: 600px) {
-      .container {
-        padding: 32px 20px;
-        border-radius: 24px;
-      }
-      .logo {
-        font-size: 2.2rem;
-      }
-      .subtitle {
-        font-size: 1rem;
-      }
+    /* ---- Responsive ---- */
+    @media (max-width: 640px) {
+      body { padding: 16px; }
+      .glitch { font-size: 2.8rem; letter-spacing: 3px; }
+      .subtitle { font-size: 0.55rem; }
+      .ip-display { font-size: 0.55rem; padding: 10px 16px; }
       .btn {
-        padding: 14px 24px;
-        font-size: 1rem;
-        min-width: 120px;
+        font-size: 0.5rem;
+        padding: 12px 18px;
+        min-width: 100px;
         flex: 1 1 100%;
       }
-      .buttons {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-      }
-      .ip-display {
-        font-size: 0.95rem;
-        padding: 10px 18px;
-      }
+      .buttons { flex-direction: column; gap: 12px; }
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="logo">⛏️ spymc</div>
-  <div class="subtitle">A premium Minecraft experience</div>
-
-  <div class="ip-display">
-    <strong>IP:</strong> <span id="serverIp">spymc.xyz</span>
+  <!-- Glitch title (Minecraft pixel font) -->
+  <div class="glitch-wrapper">
+    <div class="glitch" data-text="spymc">SPYMC</div>
   </div>
 
+  <!-- Subtitle -->
+  <div class="subtitle">
+    <span>a premium survival community</span><br />
+    <span>where legends are forged</span>
+  </div>
+
+  <!-- IP display -->
+  <div class="ip-display">
+    <strong>IP</strong> <span id="serverIp">spymc.xyz</span>
+  </div>
+
+  <!-- Buttons -->
   <div class="buttons">
     <a href="#" id="discordBtn" class="btn btn-discord" target="_blank" rel="noopener">
       <i class="fab fa-discord"></i> Discord
     </a>
     <a href="#" id="storeBtn" class="btn btn-store" target="_blank" rel="noopener">
-      <i class="fas fa-shopping-cart"></i> Store
+      <i class="fas fa-cart-plus"></i> Store
     </a>
     <button id="joinBtn" class="btn btn-join">
       <i class="fas fa-copy"></i> Join
     </button>
   </div>
-</div>
 
-<!-- Toast notification -->
-<div id="toast" class="toast">IP copied to clipboard!</div>
+  <!-- Toast -->
+  <div id="toast" class="toast">IP copied to clipboard!</div>
 
-<!-- Font Awesome (free) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script>
+    // ============================================================
+    //  CONFIGURATION – Edit these to match your server
+    // ============================================================
+    const CONFIG = {
+      ip: "spymc.xyz",
+      discord: "https://discord.gg/your-invite",
+      store: "https://store.spymc.xyz"
+    };
+    // ============================================================
 
-<script>
-  // ============================================================
-  //  CONFIGURATION – Edit these values to match your server
-  // ============================================================
-  const CONFIG = {
-    ip: "spymc.xyz",                // Your server IP
-    discord: "https://discord.gg/your-invite",   // Discord invite link
-    store: "https://store.spymc.xyz"              // Store URL
-  };
-  // ============================================================
+    const ipDisplay = document.getElementById('serverIp');
+    const discordBtn = document.getElementById('discordBtn');
+    const storeBtn = document.getElementById('storeBtn');
+    const joinBtn = document.getElementById('joinBtn');
+    const toast = document.getElementById('toast');
 
-  // DOM elements
-  const ipDisplay = document.getElementById('serverIp');
-  const discordBtn = document.getElementById('discordBtn');
-  const storeBtn = document.getElementById('storeBtn');
-  const joinBtn = document.getElementById('joinBtn');
-  const toast = document.getElementById('toast');
+    ipDisplay.textContent = CONFIG.ip;
+    discordBtn.href = CONFIG.discord;
+    storeBtn.href = CONFIG.store;
 
-  // Set IP in the display
-  ipDisplay.textContent = CONFIG.ip;
+    joinBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      try {
+        await navigator.clipboard.writeText(CONFIG.ip);
+        showToast('IP copied!');
+      } catch {
+        const ta = document.createElement('textarea');
+        ta.value = CONFIG.ip;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast('IP copied!');
+      }
+    });
 
-  // Set button links
-  discordBtn.href = CONFIG.discord;
-  storeBtn.href = CONFIG.store;
-
-  // Join button – copy IP to clipboard
-  joinBtn.addEventListener('click', async (e) => {
-    e.preventDefault();
-    try {
-      await navigator.clipboard.writeText(CONFIG.ip);
-      showToast('IP copied to clipboard!');
-    } catch (err) {
-      // Fallback for older browsers
-      const textArea = document.createElement('textarea');
-      textArea.value = CONFIG.ip;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textArea);
-      showToast('IP copied to clipboard!');
+    let toastTimer;
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
     }
-  });
-
-  // Toast helper
-  let toastTimeout;
-  function showToast(message) {
-    toast.textContent = message;
-    toast.classList.add('show');
-    clearTimeout(toastTimeout);
-    toastTimeout = setTimeout(() => {
-      toast.classList.remove('show');
-    }, 2500);
-  }
-
-  // (Optional) Prevent default on Discord/Store if links are empty
-  // but we already set them from CONFIG.
-</script>
+  </script>
 </body>
 </html>
