@@ -1,6 +1,9 @@
 # Minecraft Server Landing Page – spymc.xyz
 
 A standalone, single‑file HTML landing page for a Minecraft server. It features a vintage CRT aesthetic with subtle glitch effects, a copy‑to‑clipboard IP button, and links to Discord and the server store. The page is fully configurable via a simple JavaScript object and includes SEO meta tags for better discoverability.
+## Screenshots
+
+![Dashboard](https://i.ibb.co/zWX7P7fr/Screenshot-2026-08-05-031719.png)
 
 ## Features
 
